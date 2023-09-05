@@ -4,19 +4,15 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.2.2'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem 'rails', '~> 7.0.7', '>= 7.0.7.2'
-gem 'devise'
+gem 'rails', '~> 7.0.7'
 
-gem 'rubocop', '>= 1.0', '< 2.0'
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
 
-# Use sqlite3 as the database for Active Record
+# Use postgresql as the database for Active Record
 gem 'pg'
-gem 'sqlite3', '~> 1.4'
 # Use the Puma web server [https://github.com/puma/puma]
-gem 'puma', '~> 5.0'
-
+gem 'puma'
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem 'importmap-rails'
 
@@ -57,6 +53,7 @@ end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
+  gem 'letter_opener'
   gem 'web-console'
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
@@ -72,3 +69,9 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
+
+# ADD DEVISE GEM
+gem 'devise'
+
+# ADD CSS_BUNDLING GEM
+gem 'cssbundling-rails', '~> 1.1', '>= 1.1.1'
