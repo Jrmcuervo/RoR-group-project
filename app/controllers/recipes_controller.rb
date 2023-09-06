@@ -1,48 +1,38 @@
 class RecipesController < ApplicationController
+  before_action :authenticate_user!
+
+  def index
+    @recipes = current_user.recipes
+  end
+
   def new
     @recipe = Recipe.new
   end
 
   def create
-    @user = current_user
-    @recipe = @user.recipes.new(recipes_params)
-    @recipe.public = false
+    @recipe = Recipe.new name: params[:name], preparation_time: params[:preparation_time],
+                         cooking_time: params[:cooking_time], description: params[:description],
+                         public: params[:public], user: current_user
     if @recipe.save
-      redirect_to recipes_path, notice: 'recipe was successfully created'
+      redirect_to '/recipes'
     else
-      render :new, alert: "Couldn't create recipe for user"
+      render :new, status: :unprocessable_entity
     end
-  end
-
-  def index
-    @recipes = Recipe.all
   end
 
   def show
     @recipe = Recipe.find(params[:id])
-    @foods = Food.all
   end
 
   def destroy
     @recipe = Recipe.find(params[:id])
     @recipe.destroy
-    redirect_to recipes_path, notice: 'Recipe was deleted successfully'
+    redirect_to '/recipes'
   end
 
   def update
     @recipe = Recipe.find(params[:id])
-
-    if @recipe.public == true
-      @recipe.update(public: false)
-    else
-      Recipe.find(@recipe.id).update(public: true)
-    end
-    redirect_to recipe_path(@recipe.id), notice: 'Public Updated'
-  end
-
-  private
-
-  def recipes_params
-    params.permit(:name, :description, :preparation_time, :cooking_time, current_user.id)
+    @recipe.update(public: !@recipe.public)
+    redirect_to recipe_path(@recipe)
   end
 end
