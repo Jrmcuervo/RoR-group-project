@@ -1,26 +1,17 @@
 class ShoppingListController < ApplicationController
   def index
     @user = current_user
-    @recipes = @user.recipes.includes(:foods)
-    @general_food = @user.foods
-
-    @missing_foods = []
-    @total_cost = 0
-
-    @recipes.each do |recipe|
-      missing_foods = recipe.foods.reject do |food|
-        @general_food.any? do |general_food|
-          general_food.name == food.name
-        end
-      end
-      @missing_foods.concat(missing_foods)
+    @foods = Food.all
+    @recipes = Recipe.where(user_id: @user.id)
+    @recipe_foods = RecipeFood.where(recipe_id: @recipes.ids)
+    @shopping_list = []
+    @recipe_foods.each do |recipe_food|
+      @shopping_list << recipe_food
     end
+    @final_list = @foods.where(id: @shopping_list.map(&:food_id))
 
-    @missing_foods.flatten.each do |food|
-      if food.quantity && food.price
-        total = food.quantity * food.price
-        @total_cost += total
-      end
-    end
+    @price = @final_list.pluck(:price)
+    @quantity = @final_list.pluck(:quantity)
+    @total = @price.zip(@quantity).map { |x, y| x * y }.sum
   end
 end
