@@ -4,7 +4,10 @@ RSpec.describe 'Testing recipe views', type: :feature do
   describe 'Recipe#index' do
     before(:each) do
       user = User.create! name: 'Tom', email: 'tom@example.com', password: 'password'
-      (1..5).each { |i| user.recipes.create name: "Test Recipe #{i}", public: true, description: 'this is description', preparation_time: '1 hours', cooking_time: '1 days' }
+      (1..5).each do |i|
+        user.recipes.create name: "Test Recipe #{i}", public: true, description: 'this is description',
+                            preparation_time: '1 hours', cooking_time: '1 days'
+      end
       visit root_path
     end
 
