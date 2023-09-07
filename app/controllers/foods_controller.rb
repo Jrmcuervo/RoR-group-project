@@ -5,8 +5,6 @@ class FoodsController < ApplicationController
     @food = @user.foods.new(food_params)
     if @food.save
       redirect_to root_path, notice: 'Food was successfully created.'
-    else
-      render :new, alert: 'Food was not created.'
     end
   end
 
