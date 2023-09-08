@@ -8,9 +8,9 @@ class RecipesController < ApplicationController
     @user = current_user
     @recipe = @user.recipes.new(recipes_params)
     @recipe.public = false
-    if @recipe.save
-      redirect_to recipes_path, notice: 'recipe was successfully created'
-    end
+    return unless @recipe.save
+
+    redirect_to recipes_path, notice: 'recipe was successfully created'
   end
 
   def index
