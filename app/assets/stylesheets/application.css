@@ -1,10 +1,3 @@
-.card {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 #navbarSupportedContent {
   display: flex;
   flex-direction: row;
@@ -45,7 +38,7 @@
 
 .d-flex {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 table {
@@ -100,12 +93,6 @@ tr {
   text-decoration: underline;
 }
 
-.btn-primary {
-  border: 2px solid;
-  padding: 5px;
-  text-decoration: none;
-}
-
 .me-3 {
   display: none;
 }
@@ -114,12 +101,18 @@ tr {
   text-decoration: none;
   border: none;
   color: black;
+  margin: 0;
+  background: none;
+  padding: 0;
 }
 
 #shopping-list {
   text-decoration: none;
   border: none;
   color: black;
+  margin: 0;
+  background: none;
+  padding: 0;
 }
 
 .fs-5 {
@@ -131,17 +124,21 @@ tr {
 }
 
 .card {
-  width: 500px;
+  width: 800px;
   max-width: 100%;
   border: 1px solid #e0e0e0;
   border-radius: 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: box-shadow 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .card-body {
   padding: 20px;
+
   /* Aumenta el espaciado interno para darle más respiración al contenido */
 }
 
@@ -163,10 +160,11 @@ tr {
 }
 
 .btn-primary {
-  color: #FFF;
+  color: #fff;
   border: none;
   border-radius: 5px;
   padding: 6px 12px;
   margin-bottom: 20px;
-  background-color: aqua;
+  background-color: rgb(158, 161, 161);
+  text-decoration: none;
 }
