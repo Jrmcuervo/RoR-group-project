@@ -317,6 +317,6 @@ Furthermore, if you would like to get in touch with me, you can find our contact
 
 ## 📄 License <a name="license"></a>
 
-This project is [MIT](./LICENSE) licensed.
+This project is [MIT](./MIT.md) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
