@@ -3,11 +3,9 @@ class FoodsController < ApplicationController
   def create
     @user = current_user
     @food = @user.foods.new(food_params)
-    if @food.save
-      redirect_to root_path, notice: 'Food was successfully created.'
-    else
-      render :new, alert: 'Food was not created.'
-    end
+    return unless @food.save
+
+    redirect_to root_path, notice: 'Food was successfully created.'
   end
 
   def new

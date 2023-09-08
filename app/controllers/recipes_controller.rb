@@ -8,11 +8,9 @@ class RecipesController < ApplicationController
     @user = current_user
     @recipe = @user.recipes.new(recipes_params)
     @recipe.public = false
-    if @recipe.save
-      redirect_to recipes_path, notice: 'recipe was successfully created'
-    else
-      render :new, alert: "Couldn't create recipe for user"
-    end
+    return unless @recipe.save
+
+    redirect_to recipes_path, notice: 'recipe was successfully created'
   end
 
   def index

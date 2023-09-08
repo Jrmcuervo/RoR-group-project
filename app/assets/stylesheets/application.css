@@ -1,15 +1,170 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+#navbarSupportedContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 38px;
+}
+
+.gap-3 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.form-control {
+  display: flex;
+  width: 550px;
+  height: 29px;
+}
+
+.navbar-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 75%;
+  list-style: none;
+}
+
+.nav-link {
+  text-decoration: none;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.d-flex {
+  display: flex;
+  justify-content: center;
+}
+
+table {
+  width: 567px;
+  border-collapse: collapse;
+  margin-top: 19px;
+}
+
+tbody {
+  border: 2px solid;
+}
+
+td {
+  text-align: center;
+  border-left: 2px solid;
+}
+
+th {
+  border-left: 2px solid;
+  background-color: #ababab;
+}
+
+tr {
+  border: 2px solid;
+}
+
+.col-md-8 {
+  margin-left: 75%;
+  border: 2px solid;
+  text-align: center;
+  width: 154px;
+}
+
+.col-md-4 {
+  width: 114px;
+  margin-top: -23px;
+  border: 2px solid;
+  text-align: center;
+}
+
+.food-nav {
+  display: none;
+}
+
+.alert {
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  border: none;
+  text-decoration: underline;
+}
+
+.me-3 {
+  display: none;
+}
+
+#Ingredient {
+  text-decoration: none;
+  border: none;
+  color: black;
+  margin: 0;
+  background: none;
+  padding: 0;
+}
+
+#shopping-list {
+  text-decoration: none;
+  border: none;
+  color: black;
+  margin: 0;
+  background: none;
+  padding: 0;
+}
+
+.fs-5 {
+  margin-left: 442px;
+  border: 3px solid;
+  padding: 6px;
+  font-size: 18px;
+  text-align: center;
+}
+
+.card {
+  width: 800px;
+  max-width: 100%;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: box-shadow 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-body {
+  padding: 20px;
+
+  /* Aumenta el espaciado interno para darle más respiración al contenido */
+}
+
+.card:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-title {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  text-decoration: none;
+  color: black;
+}
+
+.card-subtitle {
+  font-size: 1rem;
+  color: #666;
+  margin-left: 20px;
+}
+
+.btn-primary {
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 6px 12px;
+  margin-bottom: 20px;
+  background-color: rgb(158, 161, 161);
+  text-decoration: none;
+}
