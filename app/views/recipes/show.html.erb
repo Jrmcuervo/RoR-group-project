@@ -1,12 +1,12 @@
 <div class="container">
   <h1 class="text-center my-2"><%= @recipe.name %></h1>
   <div class="row mt-2 d-flex justify-content-center">
-    <div class="col-md-8">
+    <div class="names">
       <p>Preparation Time: <%= @recipe.preparation_time %></p>
       <p>Preparation Time: <%= @recipe.cooking_time %></p>
       <p>Step go here...</p>
     </div>
-    <div class="col-md-4">
+    <div class="names">
       <% if can? :update, @recipe %>
         <%= form_with model:@recipe, url:recipe_path(@recipe.id), html:{method: :put} do |f| %>
             <div class="form-check form-switch">
@@ -25,11 +25,12 @@
     <% else %>
       <% if can? :update, @recipe %>
         <div class="col-md-8">
-          <%= link_to 'General shopping list', shopping_list_index_path, class: 'btn btn-primary' %>
+          <%= link_to 'General shopping list', shopping_list_index_path, class: 'btn btn-primary',id:"shopping-list" %>
         </div>
         <div class="col-md-4">
-          <%= link_to 'Add Ingredient', new_recipe_recipe_food_path(@recipe.id), class: 'btn btn-primary' %>
+          <%= link_to 'Add Ingredient', new_recipe_recipe_food_path(@recipe.id), class: 'btn btn-primary',id:"Ingredient" %>
         </div>
+        <hr>
       <% end %>
       <table class="table table-hover table-bordered mt-4 table-responsive{-sm|-md|-lg|-xl} ">
         <thead>
