@@ -10,8 +10,6 @@ class RecipesController < ApplicationController
     @recipe.public = false
     if @recipe.save
       redirect_to recipes_path, notice: 'recipe was successfully created'
-    else
-      render :new, alert: "Couldn't create recipe for user"
     end
   end
 

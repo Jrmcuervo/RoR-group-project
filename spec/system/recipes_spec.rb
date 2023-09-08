@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Recipe', type: :system do
-  user = User.create(name: 'John', email: 'john@gmail.com', password: '123456')
+  user = User.create(name: 'ruben', email: 'ruben@gmail.com', password: '123456')
 
   subject do
     Recipe.new(name: 'Chicken', description: 'Chicken with rice', user_id: user.id)
