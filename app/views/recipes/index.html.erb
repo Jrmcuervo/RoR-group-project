@@ -1,0 +1,57 @@
+<div class="container">
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary me-3 my-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Add Recipe
+  </button>
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Add Recipe</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <%= form_with model: @recipe, url: recipes_path do |f| %>
+            <div class="form-group mb-2">
+              <%= f.label :name %>
+              <%= f.text_field :name, class: "form-control" %>
+            </div>
+            <div class="form-group mb-2">
+              <%= f.label :description %>
+              <%= f.text_area :description, size: '50x10', class: "form-control" %>
+            </div>
+            <div class="form-group mb-2">
+              <%= f.label :preparation_time %>
+              <%= f.text_field :preparation_time, class: "form-control" %>
+              <em>Eg: 1 Hour</em>
+            </div>
+            <div class="form-group mb-2">
+              <%= f.label :cooking_time %>
+              <%= f.text_field :cooking_time, class: "form-control" %>
+              <em>Eg: 1 Hour</em>
+            </div>
+            <div class="form-group mb-2 ">
+              <%= f.submit "Create Recipe", class: "btn btn-primary" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% @recipes.each do |recipe| %>
+    <%= link_to recipe_path(recipe.id), class: "text-decoration-none text-black" do %>
+      <div class="card mb-3">
+      <div class="card-body d-flex align-items-start">
+          <div class="mr-3">
+              <h3 class="card-title mb-2"><%= recipe.name %></h3>
+              <% if can? :destroy, recipe %>
+                  <%= button_to "Delete", recipe_path(recipe.id), class: "btn btn-primary", method: :delete %>
+              <% end %>
+          </div>
+          <p class="card-subtitle text-body-secondary flex-grow-1"><%= recipe.description %></p>
+      </div>
+  </div>
+    <% end %>
+  <% end %>
+</div>
